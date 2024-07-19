@@ -1,6 +1,15 @@
 <script>
+import UIButton from '../../components/ui/button/index.vue'
 export default {
-  name: "index"
+  components: {
+    UIButton
+  },
+  name: "index",
+  methods: {
+    textClick () {
+      console.warn('@!@#!@#!@#')
+    }
+  }
 }
 </script>
 
@@ -8,14 +17,16 @@ export default {
 <header>
   <div>
     <img src="../../assets/picture/logo.svg" alt="logo">
-    <img src="../../assets/picture/company-name.svg" alt="company-name">
+    <img src="../../assets/picture/company.svg" alt="company">
   </div>
-  <button>
-    Clone now
-  </button>
+  <UIButton textButton="123" @clickButton="textClick">
+
+  </UIButton>
 </header>
 </template>
 
-<style scoped>
-
+<style>
+.red {
+  background: red;
+}
 </style>
