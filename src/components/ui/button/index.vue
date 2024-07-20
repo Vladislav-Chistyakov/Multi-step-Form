@@ -44,10 +44,10 @@ export default {
   display: block;
   width: fit-content;
   margin: 0;
-  padding: 20px 40px;
-  border: none;
-  color: white;
+  padding: 19px 39px;
   background: #4A3AFF;
+  border: 1px solid #4A3AFF;
+  color: white;
   border-radius: 56px;
   font-weight: 700;
   font-size: 18px;

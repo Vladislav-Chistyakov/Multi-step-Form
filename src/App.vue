@@ -1,16 +1,16 @@
 <script>
-import Main from './components/main/index.vue'
+import Page from './components/page/index.vue'
 
 export default {
   components: {
-    Main
+    Page
   }
 }
 </script>
 
 <template>
   <div class="app">
-    <Main></Main>
+    <Page></Page>
   </div>
 </template>
 
