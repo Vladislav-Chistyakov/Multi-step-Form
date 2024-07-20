@@ -18,7 +18,53 @@ export default {
     </p>
     <form class="steps-block__form">
       <div class="steps-block__card">
-
+        <ul class="steps-block__list-steps">
+          <li class="steps-block__item-step item-step">
+            <div class="item-step__back-line">
+              <div class="item-step__back-center-line">---</div>
+            </div>
+            <span class="item-step__num-step">1</span>
+            <div class="item-step__next-line">
+              <div class="item-step__next-center-line">---</div>
+            </div>
+          </li>
+          <li class="steps-block__item-step item-step">
+            <div class="item-step__back-line">
+              <div class="item-step__back-center-line">---</div>
+            </div>
+            <span class="item-step__num-step">2</span>
+            <div class="item-step__next-line">
+              <div class="item-step__next-center-line">---</div>
+            </div>
+          </li>
+          <li class="steps-block__item-step item-step">
+            <div class="item-step__back-line">
+              <div class="item-step__back-center-line">---</div>
+            </div>
+            <span class="item-step__num-step">3</span>
+            <div class="item-step__next-line">
+              <div class="item-step__next-center-line">---</div>
+            </div>
+          </li>
+          <li class="steps-block__item-step item-step">
+            <div class="item-step__back-line">
+              <div class="item-step__back-center-line">---</div>
+            </div>
+            <span class="item-step__num-step">4</span>
+            <div class="item-step__next-line">
+              <div class="item-step__next-center-line">---</div>
+            </div>
+          </li>
+          <li class="steps-block__item-step item-step">
+            <div class="item-step__back-line">
+              <div class="item-step__back-center-line">---</div>
+            </div>
+            <span class="item-step__num-step">5</span>
+            <div class="item-step__next-line">
+              <div class="item-step__next-center-line">---</div>
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="steps-block__block-buttons">
         <UIButton type="button"
@@ -84,4 +130,65 @@ export default {
   background: white;
   box-shadow: none;
 }
+
+.steps-block__list-steps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.steps-block__item-step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-step {
+
+}
+
+
+.item-step__num-step {
+  background-color: #4A3AFF;
+  color: white;
+  border-radius: 100%;
+  height: 34px;
+  width: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.item-step__back-line {
+  margin-right: 18px;
+  height: 4px;
+  background: #EFF0F6;
+  border-radius: 0 10px 10px 0;
+}
+
+
+.item-step__back-center-line {
+  border-radius: 0 10px 10px 0;
+  height: 4px;
+  background-color: #EFF0F6;
+}
+
+.item-step__next-line {
+  margin-left: 18px;
+  height: 4px;
+  background: #EFF0F6;
+  border-radius: 10px 0 0 10px;
+}
+
+.item-step__next-center-line {
+  border-radius: 10px;
+  height: 4px;
+  background-color: #4A3AFF;
+}
+
+
 </style>
