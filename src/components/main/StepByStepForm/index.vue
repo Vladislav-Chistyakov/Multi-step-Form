@@ -4,6 +4,34 @@ export default {
   name: "index",
   components: {
     UIButton
+  },
+  props: {
+    step: {
+      required: true,
+      type: Number,
+      default: 0
+    },
+    maxStep: {
+      required: true,
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    activeNextButton () {
+      return this.step < this.maxStep - 1
+    },
+    activeBackButton () {
+      return this.step > 0
+    }
+  },
+  methods: {
+    clickNextButton () {
+      this.$emit('newStep', this.step + 1)
+    },
+    clickBackButton () {
+      this.$emit('newStep', this.step - 1)
+    },
   }
 }
 </script>
@@ -66,12 +94,20 @@ export default {
           </li>
         </ul>
       </div>
+      <div style="background-color: red">
+        <slot name="default"></slot>
+      </div>
       <div class="steps-block__block-buttons">
-        <UIButton type="button"
+        <UIButton v-if="activeBackButton"
+                  type="button"
+                  @click.prevent="clickBackButton"
                   text-button="Previous step"
                   custom-class="steps-block__button-back" />
-        <UIButton type="button"
+        <UIButton v-if="activeNextButton"
+                  type="button"
+                  @click.prevent="clickNextButton"
                   text-button="Next step"
+                  class="button-next"
                   custom-class="steps-block__button-next" />
       </div>
     </form>
@@ -120,7 +156,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  //justify-content: space-between;
   gap: 20px;
 }
 
@@ -129,6 +165,11 @@ export default {
   border: 1px solid #4A3AFF;
   background: white;
   box-shadow: none;
+  margin-right: auto;
+}
+
+.button-next {
+  margin-left: auto;
 }
 
 .steps-block__list-steps {
