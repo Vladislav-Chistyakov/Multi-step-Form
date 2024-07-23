@@ -93,9 +93,18 @@ export default {
             </div>
           </li>
         </ul>
-      </div>
-      <div style="background-color: red">
-        <slot name="default"></slot>
+        <div>
+          {{ step }}
+        </div>
+        <div class="steps-block__card-main">
+          <h2 class="steps-block__card-main-title">
+            <slot name="title"></slot>
+          </h2>
+          <p class="steps-block__card-main-description">
+            <slot name="description"></slot>
+          </p>
+          <slot name="default"></slot>
+        </div>
       </div>
       <div class="steps-block__block-buttons">
         <UIButton v-if="activeBackButton"
@@ -152,6 +161,21 @@ export default {
   box-shadow: 0 5px 16px 0 #080F340F;
 }
 
+.steps-block__card-main-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.steps-block__card-main-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #6F6C90;
+  margin-bottom: 39px;
+}
+
 .steps-block__block-buttons {
   display: flex;
   flex-direction: row;
@@ -176,6 +200,9 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #D9DBE9;
 }
 
 .steps-block__item-step {

@@ -6,19 +6,35 @@ import stepSubmit from "./Steps/StepSubmit.vue";
 
 export const steps = [
     {
-        component: stepInputs
+        component: stepInputs,
+        title: 'Contact details',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisc.'
     },
     {
-        component: stepCheckbox
+        component: stepCheckbox,
+        title: '',
+        description: ''
     },
     {
-        component: stepRadio
+        component: stepRadio,
+        title: '',
+        description: ''
     },
     {
-        component: stepSubmit
+        component: stepSubmit,
+        title: '',
+        description: ''
     }
 ]
 
 export const activeStepComponent = function (index) {
     return steps[index].component
+}
+
+export const activeStepTitle = function (index) {
+    return steps[index].title
+}
+
+export const activeStepDescription = function (index) {
+    return steps[index].description
 }
