@@ -23,6 +23,16 @@ export default {
     },
     activeBackButton () {
       return this.step > 0
+    },
+    stepStyle () {
+      return this.step + 1
+    },
+    listStep () {
+      const listNumberStep = []
+      for (let i = 1; i <= this.maxStep; i++) {
+        listNumberStep.push(i)
+      }
+      return listNumberStep
     }
   },
   methods: {
@@ -47,49 +57,13 @@ export default {
     <form class="steps-block__form">
       <div class="steps-block__card">
         <ul class="steps-block__list-steps">
-          <li class="steps-block__item-step item-step">
-            <div class="item-step__back-line">
-              <div class="item-step__back-center-line">---</div>
+          <li class="steps-block__item-step item-step" v-for="(item, index) in listStep" :key="index">
+            <div v-if="index !== 0" class="item-step__back-line" >
+              <div class="item-step__back-center-line" :class="{ 'active-step' : item <= stepStyle }"></div>
             </div>
-            <span class="item-step__num-step">1</span>
-            <div class="item-step__next-line">
-              <div class="item-step__next-center-line">---</div>
-            </div>
-          </li>
-          <li class="steps-block__item-step item-step">
-            <div class="item-step__back-line">
-              <div class="item-step__back-center-line">---</div>
-            </div>
-            <span class="item-step__num-step">2</span>
-            <div class="item-step__next-line">
-              <div class="item-step__next-center-line">---</div>
-            </div>
-          </li>
-          <li class="steps-block__item-step item-step">
-            <div class="item-step__back-line">
-              <div class="item-step__back-center-line">---</div>
-            </div>
-            <span class="item-step__num-step">3</span>
-            <div class="item-step__next-line">
-              <div class="item-step__next-center-line">---</div>
-            </div>
-          </li>
-          <li class="steps-block__item-step item-step">
-            <div class="item-step__back-line">
-              <div class="item-step__back-center-line">---</div>
-            </div>
-            <span class="item-step__num-step">4</span>
-            <div class="item-step__next-line">
-              <div class="item-step__next-center-line">---</div>
-            </div>
-          </li>
-          <li class="steps-block__item-step item-step">
-            <div class="item-step__back-line">
-              <div class="item-step__back-center-line">---</div>
-            </div>
-            <span class="item-step__num-step">5</span>
-            <div class="item-step__next-line">
-              <div class="item-step__next-center-line">---</div>
+            <span class="item-step__num-step" :class="{ 'active-step' : item <= stepStyle }">{{ item }}</span>
+            <div v-if="index !== listStep.length - 1" class="item-step__next-line" :class="{ 'active-step' : item <= stepStyle }">
+              <div class="item-step__next-center-line"></div>
             </div>
           </li>
         </ul>
@@ -212,16 +186,17 @@ export default {
 }
 
 .item-step {
-
+  flex: 1 auto;
 }
 
 
 .item-step__num-step {
-  background-color: #4A3AFF;
+  background-color: #6F6C90;
   color: white;
   border-radius: 100%;
   height: 34px;
   width: 34px;
+  min-width: 34px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,8 +207,9 @@ export default {
 }
 
 .item-step__back-line {
+  display: flex;
+  width: 100%;
   margin-right: 18px;
-  height: 4px;
   background: #EFF0F6;
   border-radius: 0 10px 10px 0;
 }
@@ -243,11 +219,13 @@ export default {
   border-radius: 0 10px 10px 0;
   height: 4px;
   background-color: #EFF0F6;
+  width: 100%;
 }
 
 .item-step__next-line {
+  display: flex;
+  width: 100%;
   margin-left: 18px;
-  height: 4px;
   background: #EFF0F6;
   border-radius: 10px 0 0 10px;
 }
@@ -255,6 +233,10 @@ export default {
 .item-step__next-center-line {
   border-radius: 10px;
   height: 4px;
+  width: 100%;
+}
+
+.active-step {
   background-color: #4A3AFF;
 }
 
