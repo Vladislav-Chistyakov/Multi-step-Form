@@ -11,7 +11,9 @@ export default {
   data () {
     return {
       optionSteps: steps,
-      step: 0
+      step: 0,
+      testInputsText: null,
+      form: {}
     }
   },
   computed: {
@@ -34,6 +36,10 @@ export default {
     },
   },
   methods: {
+    newDateForm (event) {
+      this.form = Object.assign(event)
+      console.log('this new date Form', this.form)
+    },
     newStep (event) {
       this.activeStep = event
     },
@@ -56,7 +62,8 @@ export default {
           {{ activeStepDescription(activeStep) }}
         </template>
         <template #default>
-          <component :is="activeStepComponent(activeStep)" />
+          <component :is="activeStepComponent(activeStep)" :form="form" @inputForm="newDateForm" />
+          !{{ form }}!
         </template>
       </StepByStepForm>
 
