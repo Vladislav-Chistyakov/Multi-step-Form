@@ -67,9 +67,6 @@ export default {
             </div>
           </li>
         </ul>
-        <div>
-          {{ step }}
-        </div>
         <div class="steps-block__card-main">
           <h2 class="steps-block__card-main-title">
             <slot name="title"></slot>

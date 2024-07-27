@@ -12,13 +12,13 @@ export const steps = [
     },
     {
         component: stepCheckbox,
-        title: '',
-        description: ''
+        title: 'Our services',
+        description: 'Please select which service you are interested in.'
     },
     {
         component: stepRadio,
-        title: '',
-        description: ''
+        title: 'What’s your project budget?',
+        description: 'Please select the project budget range you have in mind.'
     },
     {
         component: stepSubmit,
