@@ -1,7 +1,9 @@
 <script>
 import debounce from 'lodash.debounce'
+import UIInput from '../../ui/inputs/Input.vue'
 export default {
   name: "StepInputs",
+  components: { UIInput },
   data () {
     return {
       timeout: 1500,
@@ -11,7 +13,8 @@ export default {
         inputDate: '',
         inputEmail: ''
       },
-      text: 1
+      text: 1,
+      debounceTest: null
     }
   },
   methods: {
@@ -19,29 +22,32 @@ export default {
       console.warn('this FORM INPUTS: ', this.form)
       this.$emit('inputForm', this.form)
     },
-    newValueInput(key, event) {
-      // this.debounceInputValue(this.timeout)
-      console.log('event input')
-      this.form[key] = event.target.value
+    debounceInputValue () {
+      this.debounceTest = debounce(this.myEvents, this.timeout)
+      this.debounceTest()
     },
-    debounceInputValue (key, event, timeout) {
-      const testDebounce = debounce(this.newValueInput, timeout)
-      testDebounce()
-      // this.newValueInput(key, event)
+    cancelDebounce () {
+      if (this.debounceTest) {
+        this.debounceTest.cancel()
+      }
+    },
+    sandDataToParent () {
+      this.cancelDebounce()
+      this.debounceInputValue()
     }
   },
   watch: {
-    'form.inputName' (newValue) {
-      console.log(newValue)
+    'form.inputName' () {
+      this.sandDataToParent()
     },
-    'form.inputNumber' (newValue) {
-      console.log(newValue)
+    'form.inputNumber' () {
+      this.sandDataToParent()
     },
-    'form.inputDate' (newValue) {
-      console.log(newValue)
+    'form.inputDate' () {
+      this.sandDataToParent()
     },
-    'form.inputEmail' (newValue) {
-      console.log(newValue)
+    'form.inputEmail' () {
+      this.sandDataToParent()
     }
 
   }
@@ -50,10 +56,10 @@ export default {
 
 <template>
 <div>
-  <input :value="form.inputName" @input.prevent="debounceInputValue('inputName', $event, timeout)">
-  <input :value="form.inputNumber" @input.prevent="debounceInputValue('inputNumber', $event, timeout)">
-  <input :value="form.inputDate" @input.prevent="debounceInputValue('inputDate', $event, timeout)">
-  <input :value="form.inputEmail" @input.prevent="debounceInputValue('inputEmail', $event, timeout)">
+  <UIInput placeholder="Name" :disabled="false" v-model:value="form.inputName"/>
+  <UIInput placeholder="Number" :disabled="false" v-model:value="form.inputNumber"/>
+  <UIInput placeholder="Date" :disabled="false" v-model:value="form.inputDate"/>
+  <UIInput placeholder="Email" :disabled="false" v-model:value="form.inputEmail"/>
   <button @click.prevent="myEvents">
     submit
   </button>
