@@ -77,13 +77,14 @@ export default {
 }
 
 .ui-input__block {
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
   border: 1px solid #EFF0F6;
   border-radius: 46px;
-  padding: 20px;
+  padding: 15px 20px;
   background-color: #fff;
   box-shadow: 0 2px 6px 0 #13124212;
 }
