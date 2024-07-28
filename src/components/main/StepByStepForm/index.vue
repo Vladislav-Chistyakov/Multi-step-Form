@@ -67,13 +67,17 @@ export default {
             </div>
           </li>
         </ul>
+        <!--  Блок из JS  -->
         <div class="steps-block__card-main">
           <h2 class="steps-block__card-main-title">
+            <!--  Title слота  -->
             <slot name="title"></slot>
           </h2>
           <p class="steps-block__card-main-description">
+            <!--  Description слота  -->
             <slot name="description"></slot>
           </p>
+          <!--  Компонент шага, обычно с формой  -->
           <slot name="default"></slot>
         </div>
       </div>

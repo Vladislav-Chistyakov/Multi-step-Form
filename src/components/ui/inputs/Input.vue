@@ -41,35 +41,39 @@ export default {
 
 <template>
   <div class="ui-input">
-    <label class="ui-input__label">{{ label }}</label>
-    <div :class="[customClassBlockInput ? `ui-input__block ${customClassBlockInput}` : 'ui-input__block']">
+    <label :class="[customClassBlockInput ? `ui-input__block ${customClassBlockInput}` : 'ui-input__block']">
+      <span class="ui-input__label">{{ label }}</span>
+
       <input :disabled="disabled"
              :value="value"
              :placeholder="placeholder"
              @input.prevent="$emit('update:value', $event.target.value)"
              class="ui-input__input"
       />
-      <div v-if="suffix" class="ui-input__block-suffix">
+      <span v-if="suffix" class="ui-input__block-suffix">
         <slot name="suffix">
           *
         </slot>
-      </div>
-    </div>
+      </span>
+    </label>
   </div>
 </template>
 
 <style>
 .ui-input {
+  position: relative;
+  padding-top: 30px;
 }
 
 .ui-input__label {
+  position: absolute;
   display: block;
+  top: 0;
   color: #170F49;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
   text-align: left;
-  margin-bottom: 18px;
 }
 
 .ui-input__block {
