@@ -11,7 +11,7 @@ export default {
     <div class="footer__left">
       <div class="footer__left-images">
         <img src="../../assets/picture/logo.svg" alt="logo">
-        <img src="../../assets/picture/company-name.svg" alt="company-name">
+        <img src="../../assets/picture/company.svg" alt="company-name">
       </div>
       <span class="footer__left-description">
       Copyright © BRIX Templates | All Rights Reserved

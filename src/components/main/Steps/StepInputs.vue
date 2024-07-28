@@ -6,7 +6,7 @@ export default {
   components: { UIInput },
   data () {
     return {
-      timeout: 1500,
+      timeout: 750,
       form: {
         inputName: '',
         inputNumber: '',
@@ -65,10 +65,10 @@ export default {
 
   },
   mounted() {
+    this.statusDisabledNextButton()
     if (this.$attrs.form) {
       this.form = {...this.$attrs.form}
     }
-    // this.activeNextButton()
   }
 }
 </script>
