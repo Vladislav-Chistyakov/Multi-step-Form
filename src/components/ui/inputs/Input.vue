@@ -31,11 +31,7 @@ export default {
       type: String,
       default: ''
     }
-  },
-  data () {
-    return {
-    }
-  },
+  }
 }
 </script>
 
@@ -47,6 +43,7 @@ export default {
       <input :disabled="disabled"
              :value="value"
              :placeholder="placeholder"
+             :type="type"
              @input.prevent="$emit('update:value', $event.target.value)"
              class="ui-input__input"
       />
@@ -60,6 +57,7 @@ export default {
 </template>
 
 <style>
+
 .ui-input {
   position: relative;
   padding-top: 30px;
@@ -106,7 +104,4 @@ export default {
   color: rgba(111, 108, 144, 0.55);
 }
 
-
-.ui-input__block-suffix {
-}
 </style>

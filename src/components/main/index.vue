@@ -13,7 +13,8 @@ export default {
       optionSteps: steps,
       step: 0,
       testInputsText: null,
-      form: {}
+      form: {},
+      statusDisabledNextButton: false
     }
   },
   computed: {
@@ -43,6 +44,9 @@ export default {
     newStep (event) {
       this.activeStep = event
     },
+    disabledNextButton (event) {
+      this.statusDisabledNextButton = event
+    },
     shallowRef,
     activeStepComponent,
     activeStepTitle,
@@ -54,7 +58,10 @@ export default {
 <template>
   <main class="main">
     <div class="main__container container">
-      <StepByStepForm :step="activeStep" :max-step="optionSteps.length" @newStep="newStep($event)">
+      <StepByStepForm :step="activeStep"
+                      :max-step="optionSteps.length"
+                      :status-disabled-next-button="statusDisabledNextButton"
+                      @newStep="newStep($event)">
         <template #title>
           {{ activeStepTitle(activeStep) }}
         </template>
@@ -62,8 +69,11 @@ export default {
           {{ activeStepDescription(activeStep) }}
         </template>
         <template #default>
-          <component :is="activeStepComponent(activeStep)" :form="form" @inputForm="newDateForm" />
-          !{{ form }}!
+          <component :is="activeStepComponent(activeStep)"
+                     :form="form"
+                     @inputForm="newDateForm"
+                     @status-disabled-next-button="disabledNextButton"/>
+          !{{ form }}! {{ statusDisabledNextButton }}
         </template>
       </StepByStepForm>
 

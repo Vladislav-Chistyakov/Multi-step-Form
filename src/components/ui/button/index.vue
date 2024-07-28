@@ -12,6 +12,10 @@ export default {
     customClass: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   name: 'index',
@@ -33,6 +37,7 @@ export default {
   <div>
     <button @click.prevent="clickButton"
             :type="type"
+            :disabled="disabled"
             :class="[customClass ? `ui-button ${customClass}` : 'ui-button']">
       {{ textButton }}
     </button>
@@ -41,6 +46,7 @@ export default {
 
 <style>
 .ui-button {
+  cursor: pointer;
   display: block;
   width: fit-content;
   margin: 0;
@@ -53,5 +59,8 @@ export default {
   font-size: 18px;
   line-height: 20px;
   box-shadow: 0 3px 12px 0 #4A3AFF2E;
+}
+.ui-button:disabled {
+  opacity: .55;
 }
 </style>

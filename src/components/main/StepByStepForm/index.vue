@@ -15,6 +15,11 @@ export default {
       required: true,
       type: Number,
       default: 0
+    },
+    statusDisabledNextButton: {
+      required: true,
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -89,10 +94,11 @@ export default {
                   custom-class="steps-block__button-back" />
         <UIButton v-if="activeNextButton"
                   type="button"
-                  @click.prevent="clickNextButton"
                   text-button="Next step"
                   class="button-next"
-                  custom-class="steps-block__button-next" />
+                  custom-class="steps-block__button-next"
+                  :disabled="statusDisabledNextButton"
+                  @click.prevent="clickNextButton"/>
       </div>
     </form>
   </div>
