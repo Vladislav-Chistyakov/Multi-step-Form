@@ -8,13 +8,12 @@ export default {
     return {
       timeout: 750,
       form: {
-        inputName: '',
-        inputNumber: '',
-        inputCompanyName: '',
-        inputEmail: ''
+        inputName: '1',
+        inputNumber: '2',
+        inputCompanyName: '3',
+        inputEmail: '4'
       },
-      text: 1,
-      debounceTest: null
+      debounceFunction: null
     }
   },
   methods: {
@@ -24,12 +23,12 @@ export default {
       this.statusDisabledNextButton()
     },
     debounceInputValue () {
-      this.debounceTest = debounce(this.myEvents, this.timeout)
-      this.debounceTest()
+      this.debounceFunction = debounce(this.myEvents, this.timeout)
+      this.debounceFunction()
     },
     cancelDebounce () {
-      if (this.debounceTest) {
-        this.debounceTest.cancel()
+      if (this.debounceFunction) {
+        this.debounceFunction.cancel()
       }
     },
     sandDataToParent () {
@@ -66,9 +65,9 @@ export default {
   },
   mounted() {
     this.statusDisabledNextButton()
-    if (this.$attrs.form) {
-      this.form = {...this.$attrs.form}
-    }
+    // if (this.$attrs.form) {
+    //   this.form = {...this.$attrs.form}
+    // }
   }
 }
 </script>
