@@ -3,53 +3,85 @@ import UICheckbox from '../../ui/inputs/Checkbox.vue'
 export default {
   name: "StepCheckbox",
   components: { UICheckbox },
+  props: {
+    form: {
+      type: Object,
+      required: true,
+      default: null
+    }
+  },
   data () {
     return {
       timeout: 750,
-      form: {
-        development: false,
-        webDesign: false,
-        marketing: false,
-        other: false
-      },
+      formCheckbox: {},
       debounceFunction: null
     }
   },
   methods: {
-    testCheck (formKey, event) {
-      console.log('formKey', event)
-      for (const key of Object.keys(this.form)) {
-        console.log('key', key, formKey, this.form)
-        if (key !== formKey && !this.form[`${key}`]) {
-          this.form[`${key}`] = false
+    checkInput (formKey, event) {
+      if (event) {
+        for (const key of Object.keys(this.formCheckbox)) {
+          if (key !== formKey && this.formCheckbox[`${key}`]) {
+            this.formCheckbox[`${key}`] = false
+          }
         }
       }
+
+      this.formCheckbox[`${formKey}`] = event
+      this.$emit('inputForm', {...this.form, ...this.formCheckbox})
+      this.statusDisabledNextButton()
+    },
+
+    statusDisabledNextButton () {
+      for (const key of Object.keys(this.formCheckbox)) {
+        if (this.formCheckbox[`${key}`]) {
+          this.$emit('statusDisabledNextButton', false)
+          return
+        }
+      }
+      this.$emit('statusDisabledNextButton', true)
     }
+  },
+  mounted() {
+    this.formCheckbox = {
+          development: false,
+          webDesign: false,
+          marketing: false,
+          other: false
+    }
+
+    for (const key of Object.keys(this.form)) {
+      if (this.formCheckbox[`${key}`] !== this.form[`${key}`] && typeof this.formCheckbox[`${key}`] !== 'undefined') {
+        this.formCheckbox[`${key}`] = this.form[`${key}`]
+      }
+    }
+
+    this.statusDisabledNextButton()
   }
 }
 </script>
 
 <template>
 <div class="list">
-  <UICheckbox v-model:value="form.development" title-checkbox="Development" @check="testCheck('development', $event)">
+  <UICheckbox :value="formCheckbox.development" title-checkbox="Development" @check="checkInput('development', $event)">
     <template #icon>
       <img src="../../../assets/picture/checkbox-icon/development-icon.svg" alt="Development">
     </template>
   </UICheckbox>
 
-  <UICheckbox v-model:value="form.webDesign" title-checkbox="Web Design" @check="testCheck('webDesign', $event)">
+  <UICheckbox :value="formCheckbox.webDesign" title-checkbox="Web Design" @check="checkInput('webDesign', $event)">
     <template #icon>
       <img src="../../../assets/picture/checkbox-icon/web-designed-icon.svg" alt="Web Design">
     </template>
   </UICheckbox>
 
-  <UICheckbox v-model:value="form.marketing" title-checkbox="Marketing" @check="testCheck('marketing', $event)">
+  <UICheckbox :value="formCheckbox.marketing" title-checkbox="Marketing" @check="checkInput('marketing', $event)">
     <template #icon>
       <img src="../../../assets/picture/checkbox-icon/marketing-icon.svg" alt="Marketing">
     </template>
   </UICheckbox>
 
-  <UICheckbox v-model:value="form.other" title-checkbox="Other" @check="testCheck('other', $event)">
+  <UICheckbox :value="formCheckbox.other" title-checkbox="Other" @check="checkInput('other', $event)">
     <template #icon>
       <img src="../../../assets/picture/checkbox-icon/other-icon.svg" alt="Other">
     </template>

@@ -19,24 +19,11 @@ export default {
   },
   methods: {
     check (event) {
-      this.$emit('update:value', event.target.checked)
+      this.$emit('check', event.target.checked)
     },
     activeKeyEnter (event) {
       if (this.statusFocusCheckbox) {
-        this.$emit('update:value', !event.target.checked)
-      }
-    },
-    focusInCheckbox () {
-      this.statusFocusCheckbox = true
-    },
-    focusOutCheckbox () {
-      this.statusFocusCheckbox = false
-    }
-  },
-  watch: {
-    value (newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.$emit('check', newValue)
+        this.$emit('check', !event.target.checked)
       }
     }
   }
@@ -45,7 +32,7 @@ export default {
 
 <template>
 <div class="block-checkbox">
-  <label class="block-checkbox__label" :class="{ 'active-checkbox' : value, 'focus-checkbox' : statusFocusCheckbox && value }">
+  <label class="block-checkbox__label" :class="{ 'active-checkbox' : value, 'focus-checkbox' : statusFocusCheckbox }">
     <span class="block-checkbox__label-prefix">
       <span class="block-checkbox__label-prefix-wrapper">
         <slot name="icon" />
@@ -58,8 +45,8 @@ export default {
         class="block-checkbox__label-input"
         type="checkbox"
         :checked="value"
-        @focusin="focusInCheckbox"
-        @focusout="focusOutCheckbox"
+        @focusin="statusFocusCheckbox = true"
+        @focusout="this.statusFocusCheckbox = false"
         @keydown.enter="activeKeyEnter($event)"
         @input="check($event)">
   </label>
@@ -111,6 +98,7 @@ export default {
 }
 
 .block-checkbox__label-input {
+  cursor: pointer;
   opacity: 0;
   position: absolute;
   display: block;

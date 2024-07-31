@@ -8,17 +8,16 @@ export default {
     return {
       timeout: 750,
       form: {
-        inputName: '1',
-        inputNumber: '2',
-        inputCompanyName: '3',
-        inputEmail: '4'
+        inputName: '',
+        inputNumber: '',
+        inputCompanyName: '',
+        inputEmail: ''
       },
       debounceFunction: null
     }
   },
   methods: {
     myEvents () {
-      console.warn('this FORM INPUTS: ', this.form)
       this.$emit('inputForm', this.form)
       this.statusDisabledNextButton()
     },
@@ -40,10 +39,8 @@ export default {
           && !!this.form.inputNumber
           && !!this.form.inputCompanyName
           && !!this.form.inputEmail) {
-        console.warn('status is form button next: ', false)
         this.$emit('statusDisabledNextButton', false)
       } else {
-        console.warn('status is form button next: ', true)
         this.$emit('statusDisabledNextButton', true)
       }
     }
@@ -65,9 +62,9 @@ export default {
   },
   mounted() {
     this.statusDisabledNextButton()
-    // if (this.$attrs.form) {
-    //   this.form = {...this.$attrs.form}
-    // }
+    if (this.$attrs.form) {
+      this.form = {...this.$attrs.form}
+    }
   }
 }
 </script>
