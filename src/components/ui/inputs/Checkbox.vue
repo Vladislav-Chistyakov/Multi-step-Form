@@ -10,7 +10,7 @@ export default {
       required: true,
       type: Boolean,
       default: false
-    },
+    }
   },
   data () {
     return {

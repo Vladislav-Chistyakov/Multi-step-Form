@@ -10,11 +10,11 @@ export const steps = [
         title: 'Contact details',
         description: 'Lorem ipsum dolor sit amet consectetur adipisc.'
     },
-    {
-        component: stepCheckbox,
-        title: 'Our services',
-        description: 'Please select which service you are interested in.'
-    },
+    // {
+    //     component: stepCheckbox,
+    //     title: 'Our services',
+    //     description: 'Please select which service you are interested in.'
+    // },
     {
         component: stepRadio,
         title: 'What’s your project budget?',

@@ -12,9 +12,7 @@ export default {
   },
   data () {
     return {
-      timeout: 750,
-      formCheckbox: {},
-      debounceFunction: null
+      formCheckbox: {}
     }
   },
   methods: {
