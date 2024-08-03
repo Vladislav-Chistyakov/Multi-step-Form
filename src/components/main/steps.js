@@ -5,11 +5,11 @@ import stepSubmit from "./Steps/StepSubmit.vue";
 
 
 export const steps = [
-    {
-        component: stepInputs,
-        title: 'Contact details',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisc.'
-    },
+    // {
+    //     component: stepInputs,
+    //     title: 'Contact details',
+    //     description: 'Lorem ipsum dolor sit amet consectetur adipisc.'
+    // },
     // {
     //     component: stepCheckbox,
     //     title: 'Our services',

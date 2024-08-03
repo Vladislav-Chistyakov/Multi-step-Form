@@ -9,10 +9,6 @@ export default {
     value: {
       required: true,
       default: false
-    },
-    tabindex: {
-      type: String,
-      default: ''
     }
   },
   data () {
@@ -21,12 +17,10 @@ export default {
     }
   },
   methods: {
-    check (event) {
-      console.log('cccc', event)
+    check () {
       this.$emit('check', this.titleRadio)
     },
-    activeKeyEnter (event) {
-      console.log('dddd', event)
+    activeKeyEnter () {
       if (this.statusFocusRadio) {
         this.$emit('check', this.titleRadio)
       }
@@ -37,8 +31,11 @@ export default {
 
 <template>
   <div class="block-radio">
-    {{ value }} || {{ titleRadio }}
-    <label class="block-radio__label" :class="{ 'active-radio' : value, 'focus-radio' : statusFocusRadio && !value }">
+    <label class="block-radio__label"
+           :class="{ 'active-radio' : value, 'focus-radio' : statusFocusRadio }"
+           @focusin="statusFocusRadio = true"
+           @focusout="this.statusFocusRadio = false"
+    >
     <span class="block-radio__label-prefix">
       <span class="block-radio__label-prefix-wrapper">
         <slot name="icon" />
@@ -50,10 +47,7 @@ export default {
       <input
           class="block-radio__label-input"
           type="radio"
-          :tabindex="tabindex"
           :checked="value"
-          @focusin="statusFocusRadio = true"
-          @focusout="this.statusFocusRadio = false"
           @click="check($event)"
           @keydown.enter="activeKeyEnter($event)">
     </label>
