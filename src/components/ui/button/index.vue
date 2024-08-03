@@ -19,11 +19,6 @@ export default {
     }
   },
   name: 'index',
-  data () {
-    return {
-
-    }
-  },
   methods: {
     clickButton () {
       console.warn('Click')
@@ -61,6 +56,7 @@ export default {
   box-shadow: 0 3px 12px 0 #4A3AFF2E;
 }
 .ui-button:disabled {
+  cursor: default;
   opacity: .55;
 }
 </style>

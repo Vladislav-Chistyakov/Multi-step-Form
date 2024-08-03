@@ -1,13 +1,64 @@
 <script>
+import UIButton from '../../ui/button/index.vue'
 export default {
-  name: "StepInputs"
+  name: "StepInputs",
+  components: { UIButton },
+  data () {
+    return {
+      submit: false
+    }
+  },
+  methods: {
+    statusDisabledBackButton () {
+      this.submit = !this.submit
+      this.$emit('statusDisabledBackButton', true)
+    }
+  }
 }
 </script>
 
 <template>
-<div>4</div>
+<div class="submit-step">
+  <div class="submit-step__icon">
+    <img src="../../../assets/picture/submit-icon.svg" alt="submit-icon">
+  </div>
+  <h2 class="submit-step__title steps-block__card-main-title">
+    Submit your quote request
+  </h2>
+  <p class="submit-step__description steps-block__card-main-description">
+    Please review all the information you previously typed in the past steps, and if all is okay, submit your message to receive a project quote in 24 - 48 hours.
+  </p>
+  <UIButton v-if="!submit"
+            type="button"
+            @click.prevent="statusDisabledBackButton"
+            text-button="Submit" />
+</div>
 </template>
 
 <style scoped>
+.submit-step {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 494px;
+  text-align: center;
+}
 
+.submit-step__icon {
+  margin-bottom: 18px;
+}
+
+.submit-step__title {
+}
+
+.steps-block__card-main-title {
+}
+
+.submit-step__description {
+}
+
+.steps-block__card-main-description {
+}
 </style>

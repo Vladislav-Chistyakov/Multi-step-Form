@@ -14,7 +14,8 @@ export default {
       step: 0,
       testInputsText: null,
       form: {},
-      statusDisabledNextButton: false
+      statusDisabledNextButton: false,
+      statusDisabledBackButton: false
     }
   },
   computed: {
@@ -47,6 +48,9 @@ export default {
     disabledNextButton (event) {
       this.statusDisabledNextButton = event
     },
+    disabledBackButton (event) {
+      this.statusDisabledBackButton = event
+    },
     shallowRef,
     activeStepComponent,
     activeStepTitle,
@@ -60,6 +64,7 @@ export default {
     <div class="main__container container">
       <StepByStepForm :step="activeStep"
                       :max-step="optionSteps.length"
+                      :status-disabled-back-button="statusDisabledBackButton"
                       :status-disabled-next-button="statusDisabledNextButton"
                       @newStep="newStep($event)">
         <template #title>
@@ -72,6 +77,7 @@ export default {
           <component :is="activeStepComponent(activeStep)"
                      :form="form"
                      @inputForm="newDateForm"
+                     @status-disabled-back-button="disabledBackButton"
                      @status-disabled-next-button="disabledNextButton"/>
           !{{ form }}! {{ statusDisabledNextButton }}
         </template>
@@ -93,8 +99,6 @@ export default {
   padding: 0 28px;
   margin: 0 auto;
 }
-
-
 
 @media screen and (min-width: 1024px) {
   .main {
