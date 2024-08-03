@@ -17,14 +17,6 @@ export default {
   },
   methods: {
     checkInput (formKey, event) {
-      if (event) {
-        for (const key of Object.keys(this.formCheckbox)) {
-          if (key !== formKey && this.formCheckbox[`${key}`]) {
-            this.formCheckbox[`${key}`] = false
-          }
-        }
-      }
-
       this.formCheckbox[`${formKey}`] = event
       this.$emit('inputForm', {...this.form, ...this.formCheckbox})
       this.statusDisabledNextButton()
