@@ -23,10 +23,12 @@ export default {
     <img src="../../../assets/picture/submit-icon.svg" alt="submit-icon">
   </div>
   <h2 class="submit-step__title steps-block__card-main-title">
-    Submit your quote request
+    {{ !submit  ? 'Submit your quote request' : 'You have sent your request!' }}
   </h2>
   <p class="submit-step__description steps-block__card-main-description">
-    Please review all the information you previously typed in the past steps, and if all is okay, submit your message to receive a project quote in 24 - 48 hours.
+    {{ !submit
+      ? 'Please review all the information you previously typed in the past steps, and if all is okay, submit your message to receive a project quote in 24 - 48 hours.'
+      : 'You will receive a response within 24-48 hours' }}
   </p>
   <UIButton v-if="!submit"
             type="button"
