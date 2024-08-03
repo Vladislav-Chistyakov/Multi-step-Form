@@ -10,16 +10,16 @@ export const steps = [
     //     title: 'Contact details',
     //     description: 'Lorem ipsum dolor sit amet consectetur adipisc.'
     // },
-    {
-        component: stepCheckbox,
-        title: 'Our services',
-        description: 'Please select which service you are interested in.'
-    },
     // {
-    //     component: stepRadio,
-    //     title: 'What’s your project budget?',
-    //     description: 'Please select the project budget range you have in mind.'
+    //     component: stepCheckbox,
+    //     title: 'Our services',
+    //     description: 'Please select which service you are interested in.'
     // },
+    {
+        component: stepRadio,
+        title: 'What’s your project budget?',
+        description: 'Please select the project budget range you have in mind.'
+    },
     {
         component: stepSubmit,
         title: '',

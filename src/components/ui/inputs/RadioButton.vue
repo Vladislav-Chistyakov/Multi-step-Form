@@ -37,8 +37,8 @@ export default {
            @focusout="this.statusFocusRadio = false"
     >
     <span class="block-radio__label-prefix">
-      <span class="block-radio__label-prefix-wrapper">
-        <slot name="icon" />
+      <span class="block-radio__label-prefix-wrapper" :class="{ 'label-prefix-wrapper-active' : value}">
+        <span v-if="value" class="block-radio__label-prefix-wrapper-center" />
       </span>
       <span class="block-radio__label-prefix-title">
         {{ titleRadio }}
@@ -60,7 +60,7 @@ export default {
   position: relative;
   display: block;
   border: 1px solid #EFF0F6;
-  padding: 23px;
+  padding: 45px 32px;
   border-radius: 16px;
   box-shadow: 0 2px 6px 0 #13124212;
 }
@@ -82,12 +82,28 @@ export default {
 }
 
 .block-radio__label-prefix-wrapper {
-  height: 66px;
-  width: 66px;
+  height: 24px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #E4E1FF;
+  //background-color: ;
+  border-radius: 100%;
+  border: 1.2px solid #D9DBE9;
+  box-shadow: 0 -3px 7px 0 #14142B14 inset;
+}
+
+.label-prefix-wrapper-active {
+  box-shadow: none;
+  background-color: #4A3AFF;
+  border: 1.2px solid #4A3AFF;
+}
+
+.block-radio__label-prefix-wrapper-center {
+  display: block;
+  height: 10px;
+  width: 10px;
+  background-color: white;
   border-radius: 100%;
 }
 

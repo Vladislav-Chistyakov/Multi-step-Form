@@ -14,10 +14,10 @@ export default {
     return {
       formRadio: {},
       valuesRadioButton: {
-        one: '5 000 - 10 000',
-        two: '10 000 - 20 000',
-        three: '20 000 - 50 000',
-        four: '50 000 +',
+        one: '$5.000 - $10.000',
+        two: '$10.000 - $20.000',
+        three: '$20.000 - $50.000',
+        four: '$50.000 +',
       }
     }
   },
@@ -57,29 +57,13 @@ export default {
 
 <template>
   <div class="list">
-    <UIRadioButton :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)">
-      <template #icon>
-        <img src="../../../assets/picture/checkbox-icon/development-icon.svg" alt="Development">
-      </template>
-    </UIRadioButton>
+    <UIRadioButton :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)">
-      <template #icon>
-        <img src="../../../assets/picture/checkbox-icon/web-designed-icon.svg" alt="Web Design">
-      </template>
-    </UIRadioButton>
+    <UIRadioButton :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.three === formRadio.budget" :title-radio="valuesRadioButton.three" @check="checkInput($event)">
-      <template #icon>
-        <img src="../../../assets/picture/checkbox-icon/marketing-icon.svg" alt="Marketing">
-      </template>
-    </UIRadioButton>
+    <UIRadioButton :value="valuesRadioButton.three === formRadio.budget" :title-radio="valuesRadioButton.three" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.four === formRadio.budget" :title-radio="valuesRadioButton.four" @check="checkInput($event)">
-      <template #icon>
-        <img src="../../../assets/picture/checkbox-icon/other-icon.svg" alt="Other">
-      </template>
-    </UIRadioButton>
+    <UIRadioButton :value="valuesRadioButton.four === formRadio.budget" :title-radio="valuesRadioButton.four" @check="checkInput($event)" />
   </div>
 </template>
 
