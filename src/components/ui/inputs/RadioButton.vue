@@ -25,11 +25,9 @@ export default {
       this.$emit('check', this.titleRadio)
     },
     focusin () {
-      console.warn('focus In')
       this.statusFocusRadio = true
     },
     focusOut () {
-      console.warn('focus Out')
       this.statusFocusRadio = false
     },
     activeKeyEnter () {
