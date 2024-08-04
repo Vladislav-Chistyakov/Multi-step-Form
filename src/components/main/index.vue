@@ -52,6 +52,7 @@ export default {
       this.statusDisabledBackButton = event
     },
     submit () {
+      window.localStorage.clear()
       localStorage.setItem('form', JSON.stringify(this.form))
     },
     shallowRef,
@@ -83,7 +84,6 @@ export default {
                      @submitForm="submit"
                      @status-disabled-back-button="disabledBackButton"
                      @status-disabled-next-button="disabledNextButton"/>
-          !{{ form }}! {{ statusDisabledNextButton }}
         </template>
       </StepByStepForm>
 
