@@ -12,6 +12,7 @@ export default {
     statusDisabledBackButton () {
       this.submit = !this.submit
       this.$emit('statusDisabledBackButton', true)
+      this.$emit('submitForm')
     }
   }
 }

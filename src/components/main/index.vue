@@ -51,6 +51,9 @@ export default {
     disabledBackButton (event) {
       this.statusDisabledBackButton = event
     },
+    submit () {
+      localStorage.setItem('form', JSON.stringify(this.form))
+    },
     shallowRef,
     activeStepComponent,
     activeStepTitle,
@@ -77,6 +80,7 @@ export default {
           <component :is="activeStepComponent(activeStep)"
                      :form="form"
                      @inputForm="newDateForm"
+                     @submitForm="submit"
                      @status-disabled-back-button="disabledBackButton"
                      @status-disabled-next-button="disabledNextButton"/>
           !{{ form }}! {{ statusDisabledNextButton }}

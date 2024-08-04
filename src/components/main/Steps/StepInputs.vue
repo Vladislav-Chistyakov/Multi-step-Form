@@ -9,7 +9,7 @@ export default {
       timeout: 750,
       form: {
         inputName: '',
-        inputNumber: '',
+        inputPhone: '',
         inputCompanyName: '',
         inputEmail: ''
       },
@@ -36,7 +36,7 @@ export default {
     },
     statusDisabledNextButton () {
       if (!!this.form.inputName
-          && !!this.form.inputNumber
+          && !!this.form.inputPhone
           && !!this.form.inputCompanyName
           && !!this.form.inputEmail) {
         this.$emit('statusDisabledNextButton', false)
@@ -49,7 +49,7 @@ export default {
     'form.inputName' () {
       this.sandDataToParent()
     },
-    'form.inputNumber' () {
+    'form.inputPhone' () {
       this.sandDataToParent()
     },
     'form.inputCompanyName' () {
@@ -87,7 +87,7 @@ export default {
     </template>
   </UIInput>
 
-  <UIInput type="tel" :suffix="true" label="Number" placeholder="Number" :disabled="false" v-model:value="form.inputNumber">
+  <UIInput type="tel" :suffix="true" label="Number" placeholder="Number" :disabled="false" v-model:value="form.inputPhone">
     <template #suffix>
       <div>
         <img src="../../../assets/picture/phone.svg" alt="phone">
