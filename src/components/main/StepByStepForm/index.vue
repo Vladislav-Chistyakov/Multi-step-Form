@@ -68,11 +68,13 @@ export default {
       <div class="steps-block__card">
         <ul class="steps-block__list-steps">
           <li class="steps-block__item-step item-step" v-for="(item, index) in listStep" :key="index">
-            <div v-if="index !== 0" class="item-step__back-line" >
+            <div class="item-step__back-line" :class="{ 'visible-line' : index === 0 }">
               <div class="item-step__back-center-line" :class="{ 'active-step' : item <= stepStyle }"></div>
             </div>
+
             <span class="item-step__num-step" :class="{ 'active-step' : item <= stepStyle }">{{ item }}</span>
-            <div v-if="index !== listStep.length - 1" class="item-step__next-line" :class="{ 'active-step' : item <= stepStyle }">
+
+            <div class="item-step__next-line" :class="{ 'active-step' : item <= stepStyle, 'visible-line' : index === listStep.length - 1 }">
               <div class="item-step__next-center-line"></div>
             </div>
           </li>
@@ -253,5 +255,10 @@ export default {
   background-color: #4A3AFF;
 }
 
+
+.visible-line {
+  margin: 0;
+  visibility: hidden;
+}
 
 </style>
