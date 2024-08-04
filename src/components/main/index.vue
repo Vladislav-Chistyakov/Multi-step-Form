@@ -24,7 +24,6 @@ export default {
         return this.step
       },
       set (newValueStep) {
-        console.log('Step:', newValueStep, this.step)
         if (newValueStep >= this.optionSteps.length) {
           this.step = this.optionSteps.length - 1
         }
@@ -40,7 +39,6 @@ export default {
   methods: {
     newDateForm (event) {
       this.form = Object.assign(event)
-      console.log('this new date Form', this.form)
     },
     newStep (event) {
       this.activeStep = event

@@ -74,9 +74,6 @@ export default {
   color: #6F6C90;
 }
 
-.footer__right {
-}
-
 .form__block-input {
   padding-top: 0;
 }

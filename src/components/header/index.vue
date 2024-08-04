@@ -4,12 +4,7 @@ export default {
   components: {
     UIButton
   },
-  name: "index",
-  methods: {
-    textClick () {
-      console.warn('@!@#!@#!@#')
-    }
-  }
+  name: "index"
 }
 </script>
 
@@ -20,7 +15,7 @@ export default {
       <img src="../../assets/picture/logo.svg" alt="logo">
       <img src="../../assets/picture/company.svg" alt="company">
     </div>
-    <UIButton textButton="Clone now" @clickButton="textClick" class="header-button">
+    <UIButton textButton="Clone now" class="header-button">
 
     </UIButton>
   </div>
