@@ -70,7 +70,7 @@ export default {
 </script>
 
 <template>
-<div class="list">
+<div class="step-input-list">
   <UIInput type="text" :suffix="true" label="Name" placeholder="Name" :disabled="false" v-model:value="form.inputName">
     <template #suffix>
       <div>
@@ -106,10 +106,17 @@ export default {
 </template>
 
 <style>
-.list {
+.step-input-list {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 1024px) {
+  .step-input-list {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 </style>

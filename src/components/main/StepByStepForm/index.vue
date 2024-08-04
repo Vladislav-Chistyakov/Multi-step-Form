@@ -143,8 +143,8 @@ export default {
 }
 
 .steps-block__card {
-  margin-bottom: 32px;
-  padding: 32px 37px 80px;
+  margin-bottom: 18px;
+  padding: 24px 18px 30px;
   border-radius: 34px;
   border: 1px solid #EFF0F6;
   box-shadow: 0 5px 16px 0 #080F340F;
@@ -172,6 +172,10 @@ export default {
   gap: 20px;
 }
 
+.steps-block__button-back, .steps-block__button-next {
+  padding: 12px 14px;
+}
+
 .steps-block__button-back {
   color: #4A3AFF;
   border: 1px solid #4A3AFF;
@@ -188,8 +192,8 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 64px;
-  padding-bottom: 32px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #D9DBE9;
 }
 
@@ -203,27 +207,26 @@ export default {
   flex: 1 auto;
 }
 
-
 .item-step__num-step {
   background-color: #6F6C90;
   color: white;
   border-radius: 100%;
-  height: 34px;
-  width: 34px;
-  min-width: 34px;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 16px;
 }
 
 .item-step__back-line {
   display: flex;
   width: 100%;
-  margin-right: 18px;
+  margin-right: 6px;
   background: #EFF0F6;
   border-radius: 0 10px 10px 0;
 }
@@ -239,7 +242,7 @@ export default {
 .item-step__next-line {
   display: flex;
   width: 100%;
-  margin-left: 18px;
+  margin-left: 6px;
   background: #EFF0F6;
   border-radius: 10px 0 0 10px;
 }
@@ -254,10 +257,41 @@ export default {
   background-color: #4A3AFF;
 }
 
-
 .visible-line {
   margin: 0;
   visibility: hidden;
 }
 
+@media screen and (min-width: 1024px){
+  .steps-block__card {
+    margin-bottom: 32px;
+    padding: 32px 37px 80px;
+  }
+
+  .steps-block__list-steps {
+    margin-bottom: 64px;
+    padding-bottom: 32px;
+  }
+
+  .item-step__num-step {
+    height: 34px;
+    width: 34px;
+    min-width: 34px;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .item-step__back-line {
+    margin-right: 18px;
+  }
+
+  .item-step__next-line {
+    margin-left: 18px;
+  }
+
+  .steps-block__button-back, .steps-block__button-next {
+    padding: 18px 39px;
+  }
+}
 </style>

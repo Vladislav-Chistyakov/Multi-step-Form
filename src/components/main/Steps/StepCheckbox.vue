@@ -52,7 +52,7 @@ export default {
 </script>
 
 <template>
-<div class="list">
+<div class="step-checkbox-list">
   <UICheckbox :value="formCheckbox.development" title-checkbox="Development" @check="checkInput('development', $event)">
     <template #icon>
       <img src="../../../assets/picture/checkbox-icon/development-icon.svg" alt="Development">
@@ -80,9 +80,16 @@ export default {
 </template>
 
 <style>
-.list {
+.step-checkbox-list {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 1024px) {
+  .step-checkbox-list {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>

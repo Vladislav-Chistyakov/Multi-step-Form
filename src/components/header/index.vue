@@ -26,19 +26,19 @@ export default {
 
 .container {
   max-width: 1440px;
-  padding: 0 100px;
+  padding: 0 30px;
   margin: 0 auto;
 }
 
 .header {
-  margin-bottom: 52px;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  margin-bottom: 20px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .header__container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 15px;
   justify-content: space-between;
@@ -51,8 +51,23 @@ export default {
   gap: 15px;
 }
 
-.header-button {
-}
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: 0 100px;
+  }
 
+  .header {
+    margin-bottom: 52px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .header__container {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+  }
+}
 
 </style>

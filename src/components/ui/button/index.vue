@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="ui-button-block">
     <button @click.prevent="clickButton"
             :type="type"
             :disabled="disabled"

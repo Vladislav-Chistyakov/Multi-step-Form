@@ -56,7 +56,7 @@ export default {
 </script>
 
 <template>
-  <div class="list">
+  <div class="step-radio-list">
     <UIRadioButton :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)" />
 
     <UIRadioButton :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)" />
@@ -68,10 +68,17 @@ export default {
 </template>
 
 <style>
-.list {
+.step-radio-list {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 1024px) {
+  .step-radio-list {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>
 

@@ -93,7 +93,7 @@ export default {
 
 .main {
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 
 .container {
@@ -105,6 +105,7 @@ export default {
 @media screen and (min-width: 1024px) {
   .main {
     padding: 0 50px;
+    margin-bottom: 100px;
   }
 }
 

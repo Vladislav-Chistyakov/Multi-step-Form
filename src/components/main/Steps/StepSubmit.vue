@@ -33,12 +33,13 @@ export default {
   </p>
   <UIButton v-if="!submit"
             type="button"
+            custom-class="submit-step"
             @click.prevent="statusDisabledBackButton"
             text-button="Submit" />
 </div>
 </template>
 
-<style scoped>
+<style>
 .submit-step {
   margin: 0 auto;
   display: flex;
@@ -51,6 +52,16 @@ export default {
 
 .submit-step__icon {
   margin-bottom: 18px;
+}
+
+.submit-step {
+  padding: 12px 24px;
+}
+
+@media screen and (min-width: 1024px) {
+  .submit-step {
+    padding: 18px 39px;
+  }
 }
 
 .submit-step__title {

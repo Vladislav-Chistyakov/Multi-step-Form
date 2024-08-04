@@ -33,12 +33,6 @@ export default {
 
 <style>
 
-.container {
-  max-width: 1440px;
-  padding: 0 100px;
-  margin: 0 auto;
-}
-
 .footer__hr {
   display: block;
   border-top: 1px solid #D9DBE9
@@ -46,18 +40,19 @@ export default {
 
 .footer__container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 30px;
-  padding-top: 56px;
+  gap: 26px;
+  padding-top: 26px;
   padding-bottom: 56px;
 }
 
 .footer__left {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  gap: 17px;
+  gap: 26px;
 }
 
 .footer__left-images {
@@ -68,6 +63,7 @@ export default {
 }
 
 .footer__left-description {
+  text-align: center;
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
@@ -79,14 +75,51 @@ export default {
 }
 
 .form__input {
-  min-width: 507px;
-  padding: 12px 13px 12px 30px;
+  padding: 9px 8px 8px 10px;
+  font-size: 12px;
+  max-width: 380px;
 }
 
 .footer__button {
-  padding: 14px 26px;
-  font-size: 16px;
-  line-height: 18px;
+  padding: 7px 8px;
+  font-size: 12px;
+  line-height: 14px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 1024px){
+
+  .footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .footer__left {
+    align-items: flex-start;
+    gap: 17px;
+  }
+
+  .footer__left-description {
+    text-align: start;
+  }
+
+  .form__input {
+    min-width: 507px;
+  }
+
+  .form__input {
+    padding: 12px 13px 12px 30px;
+  }
+
+  .footer__button {
+    padding: 14px 26px;
+    font-size: 16px;
+    line-height: 18px;
+    max-width: 100%;
+  }
 }
 </style>
