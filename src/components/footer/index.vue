@@ -1,6 +1,9 @@
 <script>
+import UIInput from '../ui/inputs/Input.vue'
+import UIButton from '../ui/button/index.vue'
 export default {
-  name: "index"
+  name: "index",
+  components: { UIInput, UIButton }
 }
 </script>
 
@@ -18,16 +21,17 @@ export default {
     </span>
     </div>
     <div class="footer__right">
-    <span class="footer__right-span">
-      Subscribe to receive free Webflow cloneables every month.
-    </span>
-      <div class="footer__right-input">INPUT</div>
+      <UIInput placeholder="Enter your email" :suffix="true" custom-class-block-input="form__input" custom-class-block="form__block-input">
+        <template #suffix>
+          <UIButton text-button="Subscribe" custom-class="footer__button" />
+        </template>
+      </UIInput>
     </div>
   </div>
 </footer>
 </template>
 
-<style scoped>
+<style>
 
 .container {
   max-width: 1440px;
@@ -73,9 +77,19 @@ export default {
 .footer__right {
 }
 
-.footer__right-span {
+.form__block-input {
+  padding-top: 0;
 }
 
-.footer__right-input {
+.form__input {
+  min-width: 507px;
+  padding: 12px 13px 12px 30px;
+}
+
+.footer__button {
+  padding: 14px 26px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
 }
 </style>

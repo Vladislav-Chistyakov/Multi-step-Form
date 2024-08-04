@@ -21,7 +21,6 @@ export default {
   name: 'index',
   methods: {
     clickButton () {
-      console.warn('Click')
       this.$emit('clickButton')
     }
   }
@@ -55,6 +54,15 @@ export default {
   line-height: 20px;
   box-shadow: 0 3px 12px 0 #4A3AFF2E;
 }
+
+.ui-button:hover {
+  opacity: .90;
+}
+
+.ui-button:active {
+  opacity: .75;
+}
+
 .ui-button:disabled {
   cursor: default;
   opacity: .55;

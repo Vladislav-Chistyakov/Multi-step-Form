@@ -26,6 +26,10 @@ export default {
       type: Boolean,
       default: false
     },
+    customClassBlock: {
+      type: String,
+      default: ''
+    },
     customClassBlockInput: {
       type: String,
       default: ''
@@ -35,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <div class="ui-input">
+  <div class="ui-input" :class="[customClassBlock ? `ui-input ${customClassBlock}` : 'ui-input']">
     <label :class="[customClassBlockInput ? `ui-input__block ${customClassBlockInput}` : 'ui-input__block']">
       <span class="ui-input__label">{{ label }}</span>
 
