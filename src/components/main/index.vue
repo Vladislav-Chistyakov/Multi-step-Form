@@ -12,7 +12,6 @@ export default {
     return {
       optionSteps: steps,
       step: 0,
-      testInputsText: null,
       form: {},
       statusDisabledNextButton: false,
       statusDisabledBackButton: false

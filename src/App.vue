@@ -13,7 +13,3 @@ export default {
     <Page></Page>
   </div>
 </template>
-
-<style>
-
-</style>

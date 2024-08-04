@@ -57,13 +57,13 @@ export default {
 
 <template>
   <div class="step-radio-list">
-    <UIRadioButton :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)" />
+    <UIRadioButton tabindex-input="1" :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)" />
+    <UIRadioButton tabindex-input="2" :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.three === formRadio.budget" :title-radio="valuesRadioButton.three" @check="checkInput($event)" />
+    <UIRadioButton tabindex-input="3" :value="valuesRadioButton.three === formRadio.budget" :title-radio="valuesRadioButton.three" @check="checkInput($event)" />
 
-    <UIRadioButton :value="valuesRadioButton.four === formRadio.budget" :title-radio="valuesRadioButton.four" @check="checkInput($event)" />
+    <UIRadioButton tabindex-input="4" :value="valuesRadioButton.four === formRadio.budget" :title-radio="valuesRadioButton.four" @check="checkInput($event)" />
   </div>
 </template>
 

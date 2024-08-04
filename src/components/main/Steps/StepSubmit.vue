@@ -63,16 +63,4 @@ export default {
     padding: 18px 39px;
   }
 }
-
-.submit-step__title {
-}
-
-.steps-block__card-main-title {
-}
-
-.submit-step__description {
-}
-
-.steps-block__card-main-description {
-}
 </style>

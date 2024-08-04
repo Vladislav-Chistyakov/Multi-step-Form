@@ -9,6 +9,10 @@ export default {
     value: {
       required: true,
       default: false
+    },
+    tabindexInput: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -19,6 +23,14 @@ export default {
   methods: {
     check () {
       this.$emit('check', this.titleRadio)
+    },
+    focusin () {
+      console.warn('focus In')
+      this.statusFocusRadio = true
+    },
+    focusOut () {
+      console.warn('focus Out')
+      this.statusFocusRadio = false
     },
     activeKeyEnter () {
       if (this.statusFocusRadio) {
@@ -33,11 +45,13 @@ export default {
   <div class="block-radio">
     <label class="block-radio__label"
            :class="{ 'active-radio' : value, 'focus-radio' : statusFocusRadio }"
-           @focusin="statusFocusRadio = true"
-           @focusout="this.statusFocusRadio = false"
+           :tabindex="tabindexInput"
+           @focusin="focusin"
+           @focusout="focusOut"
+           @keydown.enter="activeKeyEnter($event)"
     >
     <span class="block-radio__label-prefix">
-      <span class="block-radio__label-prefix-wrapper" :class="{ 'label-prefix-wrapper-active' : value}">
+      <span class="block-radio__label-prefix-wrapper" :class="{ 'label-prefix-wrapper-active' : value }">
         <span v-if="value" class="block-radio__label-prefix-wrapper-center" />
       </span>
       <span class="block-radio__label-prefix-title">
@@ -48,8 +62,7 @@ export default {
           class="block-radio__label-input"
           type="radio"
           :checked="value"
-          @click="check($event)"
-          @keydown.enter="activeKeyEnter($event)">
+          @click="check($event)">
     </label>
   </div>
 </template>
@@ -87,7 +100,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  //background-color: ;
   border-radius: 100%;
   border: 1.2px solid #D9DBE9;
   box-shadow: 0 -3px 7px 0 #14142B14 inset;
