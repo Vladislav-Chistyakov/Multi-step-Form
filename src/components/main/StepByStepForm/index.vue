@@ -99,14 +99,14 @@ export default {
                   text-button="Previous step"
                   custom-class="steps-block__button-back"
                   :disabled="statusDisabledBackButton"
-                  @click.prevent="clickBackButton" />
+                  @click="clickBackButton" />
         <UIButton v-if="activeNextButton"
                   type="button"
                   text-button="Next step"
                   class="button-next"
                   custom-class="steps-block__button-next"
                   :disabled="statusDisabledNextButton"
-                  @click.prevent="clickNextButton"/>
+                  @click="clickNextButton"/>
       </div>
     </form>
   </div>

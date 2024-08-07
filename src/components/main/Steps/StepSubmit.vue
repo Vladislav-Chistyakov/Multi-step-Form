@@ -34,7 +34,7 @@ export default {
   <UIButton v-if="!submit"
             type="button"
             custom-class="submit-step"
-            @click.prevent="statusDisabledBackButton"
+            @click="statusDisabledBackButton"
             text-button="Submit" />
 </div>
 </template>

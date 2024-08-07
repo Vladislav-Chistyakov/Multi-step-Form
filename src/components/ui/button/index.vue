@@ -18,19 +18,13 @@ export default {
       default: false
     }
   },
-  name: 'index',
-  methods: {
-    clickButton () {
-      this.$emit('clickButton')
-    }
-  }
+  name: 'index'
 }
 </script>
 
 <template>
   <div class="ui-button-block">
-    <button @click.prevent="clickButton"
-            :type="type"
+    <button :type="type"
             :disabled="disabled"
             :class="[customClass ? `ui-button ${customClass}` : 'ui-button']">
       {{ textButton }}
