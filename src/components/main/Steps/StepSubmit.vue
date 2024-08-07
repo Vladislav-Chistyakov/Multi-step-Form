@@ -39,7 +39,7 @@ export default {
 </div>
 </template>
 
-<style>
+<style scoped>
 .submit-step {
   margin: 0 auto;
   display: flex;

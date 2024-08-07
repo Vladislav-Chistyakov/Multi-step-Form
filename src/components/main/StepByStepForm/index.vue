@@ -112,7 +112,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .steps-block {
   margin: 0 auto;
 }

@@ -31,7 +31,7 @@ export default {
 </footer>
 </template>
 
-<style>
+<style scoped>
 
 .footer__hr {
   display: block;

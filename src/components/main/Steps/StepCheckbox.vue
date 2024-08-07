@@ -79,7 +79,7 @@ export default {
 </div>
 </template>
 
-<style>
+<style scoped>
 .step-checkbox-list {
   display: grid;
   gap: 16px;

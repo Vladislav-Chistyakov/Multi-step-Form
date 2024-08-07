@@ -67,7 +67,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .step-radio-list {
   display: grid;
   gap: 16px;

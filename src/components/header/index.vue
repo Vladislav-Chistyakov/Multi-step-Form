@@ -22,7 +22,7 @@ export default {
 </header>
 </template>
 
-<style>
+<style scoped>
 
 .container {
   max-width: 1440px;

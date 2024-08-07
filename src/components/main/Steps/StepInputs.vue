@@ -90,7 +90,7 @@ export default {
 </div>
 </template>
 
-<style>
+<style scoped>
 .step-input-list {
   display: grid;
   gap: 16px;

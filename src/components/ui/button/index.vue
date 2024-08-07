@@ -38,7 +38,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .ui-button {
   cursor: pointer;
   display: block;
