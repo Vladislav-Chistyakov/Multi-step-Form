@@ -12,7 +12,33 @@ export default {
   },
   data () {
     return {
-      formCheckbox: {}
+      formCheckbox: {},
+      listCheckbox: [
+        {
+          value: this.formCheckbox?.development || null,
+          title: 'Development',
+          nameEvent: 'development',
+          srcImg: '/public/checkbox-icon/development-icon.svg'
+        },
+        {
+          value: this.formCheckbox?.webDesign || null,
+          title: 'Web Design',
+          nameEvent: 'webDesign',
+          srcImg: '/public/checkbox-icon/web-designed-icon.svg'
+        },
+        {
+          value: this.formCheckbox?.marketing || null,
+          title: 'Marketing',
+          nameEvent: 'marketing',
+          srcImg: '/public/checkbox-icon/marketing-icon.svg'
+        },
+        {
+          value: this.formCheckbox?.other || null,
+          title: 'Other',
+          nameEvent: 'other',
+          srcImg: '/public/checkbox-icon/other-icon.svg'
+        }
+      ]
     }
   },
   methods: {
@@ -53,27 +79,13 @@ export default {
 
 <template>
 <div class="step-checkbox-list">
-  <UICheckbox :value="formCheckbox.development" title-checkbox="Development" @check="checkInput('development', $event)">
+  <UICheckbox v-for="(item, index) in listCheckbox"
+              :key="index"
+              :value="item.value"
+              :title-checkbox="item.title"
+              @check="checkInput(item.nameEvent, $event)">
     <template #icon>
-      <img src="../../../assets/picture/checkbox-icon/development-icon.svg" alt="Development">
-    </template>
-  </UICheckbox>
-
-  <UICheckbox :value="formCheckbox.webDesign" title-checkbox="Web Design" @check="checkInput('webDesign', $event)">
-    <template #icon>
-      <img src="../../../assets/picture/checkbox-icon/web-designed-icon.svg" alt="Web Design">
-    </template>
-  </UICheckbox>
-
-  <UICheckbox :value="formCheckbox.marketing" title-checkbox="Marketing" @check="checkInput('marketing', $event)">
-    <template #icon>
-      <img src="../../../assets/picture/checkbox-icon/marketing-icon.svg" alt="Marketing">
-    </template>
-  </UICheckbox>
-
-  <UICheckbox :value="formCheckbox.other" title-checkbox="Other" @check="checkInput('other', $event)">
-    <template #icon>
-      <img src="../../../assets/picture/checkbox-icon/other-icon.svg" alt="Other">
+      <img :src="item.srcImg" :alt="item.title">
     </template>
   </UICheckbox>
 </div>

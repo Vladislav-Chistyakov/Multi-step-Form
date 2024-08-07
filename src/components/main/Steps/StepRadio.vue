@@ -13,12 +13,28 @@ export default {
   data () {
     return {
       formRadio: {},
-      valuesRadioButton: {
-        one: '$5.000 - $10.000',
-        two: '$10.000 - $20.000',
-        three: '$20.000 - $50.000',
-        four: '$50.000 +',
-      }
+      listRadioButton: [
+        {
+          tabindex: 1,
+          value: '$5.000 - $10.000',
+          title: '$5.000 - $10.000',
+        },
+        {
+          tabindex: 2,
+          value: '$10.000 - $20.000',
+          title: '$10.000 - $20.000',
+        },
+        {
+          tabindex: 3,
+          value: '$20.000 - $50.000',
+          title: '$20.000 - $50.000',
+        },
+        {
+          tabindex: 4,
+          value: '$50.000 +',
+          title: '$50.000 +',
+        }
+      ]
     }
   },
   methods: {
@@ -57,13 +73,11 @@ export default {
 
 <template>
   <div class="step-radio-list">
-    <UIRadioButton tabindex-input="1" :value="valuesRadioButton.one === formRadio.budget" :title-radio="valuesRadioButton.one" @check="checkInput($event)" />
-
-    <UIRadioButton tabindex-input="2" :value="valuesRadioButton.two === formRadio.budget" :title-radio="valuesRadioButton.two" @check="checkInput($event)" />
-
-    <UIRadioButton tabindex-input="3" :value="valuesRadioButton.three === formRadio.budget" :title-radio="valuesRadioButton.three" @check="checkInput($event)" />
-
-    <UIRadioButton tabindex-input="4" :value="valuesRadioButton.four === formRadio.budget" :title-radio="valuesRadioButton.four" @check="checkInput($event)" />
+    <UIRadioButton v-for="(item, index) in listRadioButton" :key="index"
+                   :tabindex-input="item.tabindex"
+                   :value="item.value === formRadio.budget"
+                   :title-radio="item.title"
+                   @check="checkInput($event)" />
   </div>
 </template>
 

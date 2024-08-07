@@ -11,8 +11,8 @@ export default {
       default: false
     },
     tabindexInput: {
-      type: String,
-      default: ''
+      type: Number,
+      default: null
     }
   },
   data () {
