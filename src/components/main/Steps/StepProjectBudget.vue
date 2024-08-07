@@ -1,7 +1,7 @@
 <script>
 import UIRadioButton from '../../ui/inputs/RadioButton.vue'
 export default {
-  name: "StepRadio",
+  name: "StepProjectBudget",
   components: { UIRadioButton },
   props: {
     form: {

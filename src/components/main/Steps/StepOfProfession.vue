@@ -1,7 +1,7 @@
 <script>
 import UICheckbox from '../../ui/inputs/Checkbox.vue'
 export default {
-  name: "StepCheckbox",
+  name: "StepOfProfession",
   components: { UICheckbox },
   props: {
     form: {

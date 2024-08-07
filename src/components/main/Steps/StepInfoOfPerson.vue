@@ -2,7 +2,7 @@
 // import debounce from 'lodash.debounce'
 import UIInput from '../../ui/inputs/Input.vue'
 export default {
-  name: "StepInputs",
+  name: "StepInfoOfPerson",
   components: { UIInput },
   data () {
     return {
