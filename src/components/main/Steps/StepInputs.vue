@@ -1,5 +1,5 @@
 <script>
-import debounce from 'lodash.debounce'
+// import debounce from 'lodash.debounce'
 import UIInput from '../../ui/inputs/Input.vue'
 export default {
   name: "StepInputs",
@@ -12,27 +12,13 @@ export default {
         inputPhone: '',
         inputCompanyName: '',
         inputEmail: ''
-      },
-      debounceFunction: null
+      }
     }
   },
   methods: {
     myEvents () {
       this.$emit('inputForm', this.form)
       this.statusDisabledNextButton()
-    },
-    debounceInputValue () {
-      this.debounceFunction = debounce(this.myEvents, this.timeout)
-      this.debounceFunction()
-    },
-    cancelDebounce () {
-      if (this.debounceFunction) {
-        this.debounceFunction.cancel()
-      }
-    },
-    sandDataToParent () {
-      this.cancelDebounce()
-      this.debounceInputValue()
     },
     statusDisabledNextButton () {
       if (!!this.form.inputName
@@ -47,18 +33,17 @@ export default {
   },
   watch: {
     'form.inputName' () {
-      this.sandDataToParent()
+      this.myEvents()
     },
     'form.inputPhone' () {
-      this.sandDataToParent()
+      this.myEvents()
     },
     'form.inputCompanyName' () {
-      this.sandDataToParent()
+      this.myEvents()
     },
     'form.inputEmail' () {
-      this.sandDataToParent()
+      this.myEvents()
     }
-
   },
   mounted() {
     this.statusDisabledNextButton()
