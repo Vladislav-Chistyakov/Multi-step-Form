@@ -18,25 +18,25 @@ export default {
           value: this.formCheckbox?.development || null,
           title: 'Development',
           nameEvent: 'development',
-          srcImg: '/public/checkbox-icon/development-icon.svg'
+          srcImg: '/checkbox-icon/development-icon.svg'
         },
         {
           value: this.formCheckbox?.webDesign || null,
           title: 'Web Design',
           nameEvent: 'webDesign',
-          srcImg: '/public/checkbox-icon/web-designed-icon.svg'
+          srcImg: '/checkbox-icon/web-designed-icon.svg'
         },
         {
           value: this.formCheckbox?.marketing || null,
           title: 'Marketing',
           nameEvent: 'marketing',
-          srcImg: '/public/checkbox-icon/marketing-icon.svg'
+          srcImg: '/checkbox-icon/marketing-icon.svg'
         },
         {
           value: this.formCheckbox?.other || null,
           title: 'Other',
           nameEvent: 'other',
-          srcImg: '/public/checkbox-icon/other-icon.svg'
+          srcImg: '/checkbox-icon/other-icon.svg'
         }
       ]
     }
