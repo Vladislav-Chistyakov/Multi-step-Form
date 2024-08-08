@@ -97,14 +97,13 @@ export default {
         <UIButton v-if="activeBackButton"
                   type="button"
                   text-button="Previous step"
-                  custom-class="steps-block__button-back"
+                  :white-button="true"
                   :disabled="statusDisabledBackButton"
                   @click="clickBackButton" />
         <UIButton v-if="activeNextButton"
                   type="button"
                   text-button="Next step"
                   class="button-next"
-                  custom-class="steps-block__button-next"
                   :disabled="statusDisabledNextButton"
                   @click="clickNextButton"/>
       </div>
@@ -170,18 +169,6 @@ export default {
   flex-direction: row;
   align-items: center;
   gap: 20px;
-}
-
-.steps-block__button-back, .steps-block__button-next {
-  padding: 12px 14px;
-}
-
-.steps-block__button-back {
-  color: #4A3AFF;
-  border: 1px solid #4A3AFF;
-  background: white;
-  box-shadow: none;
-  margin-right: auto;
 }
 
 .button-next {
@@ -288,10 +275,6 @@ export default {
 
   .item-step__next-line {
     margin-left: 18px;
-  }
-
-  .steps-block__button-back, .steps-block__button-next {
-    padding: 18px 39px;
   }
 }
 </style>

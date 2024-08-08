@@ -9,9 +9,17 @@ export default {
       type: String,
       default: 'button'
     },
-    customClass: {
-      type: String,
-      default: ''
+    whiteButton: {
+      type: Boolean,
+      default: false
+    },
+    smallButton: {
+      type: Boolean,
+      default: false
+    },
+    submitButton: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -26,7 +34,12 @@ export default {
   <div class="ui-button-block">
     <button :type="type"
             :disabled="disabled"
-            :class="[customClass ? `ui-button ${customClass}` : 'ui-button']">
+            class="ui-button"
+            :class="{
+              'white-button' : whiteButton,
+              'small-button' : smallButton,
+              'submit-button' : submitButton
+            }">
       {{ textButton }}
     </button>
   </div>
@@ -61,4 +74,43 @@ export default {
   cursor: default;
   opacity: .55;
 }
+
+.white-button {
+  color: #4A3AFF;
+  border: 1px solid #4A3AFF;
+  background: white;
+  box-shadow: none;
+  margin-right: auto;
+}
+
+.small-button {
+  padding: 7px 8px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.submit-button {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 494px;
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .small-button  {
+    padding: 14px 26px;
+    font-size: 16px;
+    line-height: 18px;
+    max-width: 100%;
+  }
+
+  .submit-button {
+    padding: 18px 39px;
+  }
+}
+
 </style>

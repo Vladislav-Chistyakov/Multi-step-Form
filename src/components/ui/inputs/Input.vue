@@ -26,21 +26,17 @@ export default {
       type: Boolean,
       default: false
     },
-    customClassBlock: {
-      type: String,
-      default: ''
-    },
-    customClassBlockInput: {
-      type: String,
-      default: ''
+    inputWithButton: {
+      type: Boolean,
+      default: false
     }
   }
 }
 </script>
 
 <template>
-  <div class="ui-input" :class="[customClassBlock ? `ui-input ${customClassBlock}` : 'ui-input']">
-    <label :class="[customClassBlockInput ? `ui-input__block ${customClassBlockInput}` : 'ui-input__block']">
+  <div class="ui-input" :class="{'block-with-button' : inputWithButton }">
+    <label class="ui-input__block" :class="{'label-with-button' : inputWithButton }">
       <span class="ui-input__label">{{ label }}</span>
 
       <input :disabled="disabled"
@@ -105,6 +101,26 @@ export default {
 }
 .ui-input__input::placeholder {
   color: rgba(111, 108, 144, 0.55);
+}
+
+.block-with-button {
+  padding-top: 0;
+}
+
+.label-with-button {
+  padding: 9px 8px 8px 10px;
+  font-size: 12px;
+  max-width: 380px;
+}
+
+@media screen and (min-width: 1024px) {
+  .label-with-button {
+    min-width: 507px;
+  }
+
+  .label-with-button {
+    padding: 12px 13px 12px 30px;
+  }
 }
 
 </style>

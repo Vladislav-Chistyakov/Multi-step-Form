@@ -21,9 +21,9 @@ export default {
     </span>
     </div>
     <div class="footer__right">
-      <UIInput placeholder="Enter your email" :suffix="true" custom-class-block-input="form__input" custom-class-block="form__block-input">
+      <UIInput placeholder="Enter your email" :suffix="true" :input-with-button="true">
         <template #suffix>
-          <UIButton text-button="Subscribe" custom-class="footer__button" />
+          <UIButton text-button="Subscribe" :small-button="true" />
         </template>
       </UIInput>
     </div>
@@ -36,6 +36,12 @@ export default {
 .footer__hr {
   display: block;
   border-top: 1px solid #D9DBE9
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 30px;
+  margin: 0 auto;
 }
 
 .footer__container {
@@ -70,23 +76,6 @@ export default {
   color: #6F6C90;
 }
 
-.form__block-input {
-  padding-top: 0;
-}
-
-.form__input {
-  padding: 9px 8px 8px 10px;
-  font-size: 12px;
-  max-width: 380px;
-}
-
-.footer__button {
-  padding: 7px 8px;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 500;
-}
-
 @media screen and (min-width: 1024px){
 
   .footer__container {
@@ -105,21 +94,6 @@ export default {
 
   .footer__left-description {
     text-align: start;
-  }
-
-  .form__input {
-    min-width: 507px;
-  }
-
-  .form__input {
-    padding: 12px 13px 12px 30px;
-  }
-
-  .footer__button {
-    padding: 14px 26px;
-    font-size: 16px;
-    line-height: 18px;
-    max-width: 100%;
   }
 }
 </style>
